@@ -7,10 +7,7 @@ def diference(date1,date2):
     - date1 (datetime.date): The first date.
     - date2 (datetime.date): The second date.
     Returns:
-    - int: The difference in days between date1 and date2.
-    Example:
-    >>> difference(datetime.date(2025, 5, 1), datetime.date(2025, 5, 6))
-    5
+    - The difference in days between date1 and date2.
     """
  return(date2-date1).days
 date1=input("please enter date 1(yyyy-mm-dd):")
