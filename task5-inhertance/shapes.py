@@ -1,15 +1,31 @@
 from math import pi,sqrt
 class shape:
+  """ shape is base class.
+  Args:
+      name(str) is the name of shape
+      """
   
     def __init__(self,name:str):
-       
+       """
+       Initializes a shape with a given name.
+        Args:
+            name (str): Name of the shape.
+        Raises:
+            TypeError: If name is not a string.
+        """
         if not isinstance(name,str):
             raise TypeError ("name must be a string.")
         self.name=name
     def area(self):
+      """
+      Abstract method to calculate the area of shape.
+      """
         raise NotImplementedError("subclasses must implement the are method")
 
     def __str__(self):
+      """
+      returns a name of shape
+      """
         return f"{self.name}"
 class Circle(shape):
     def __init__(self,radius:float):
@@ -53,9 +69,9 @@ class Triangle(shape):
         return f"{self.name}(a={self.a},b={self.b},c={self.c})"
     # @classmethod
 shapes=[ 
-    Circle(5),
-    Rectangle(4,6),
-    Triangle(3,4,5),
+    Circle(6),
+    Rectangle(3,5),
+    Triangle(2,3,4),
     ]
 for shape in shapes:
     print(f"{shape}-> Area:{shape.area():.2f},perimeter:{shape.perimeter():.2f}")
