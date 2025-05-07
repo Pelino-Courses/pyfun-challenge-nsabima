@@ -1,10 +1,10 @@
 
 def add(*args):
     return sum(args)
-def substract(*args):
+def subtract(*args):
     if len(args) < 2:
         raise ValueError("substraction needs two numbers.")
-    result=args[0]
+    result = args[0]
     for num in args[1:]:
         result-=num
     return result
@@ -18,13 +18,22 @@ def divide(*args):
         raise ValueError("divide needs at least two numbers.")
     result=args[0]
     for num in args[1:]:
-        if num== 0:
+        if num == 0:
             raise ZeroDivisionError("cannot divide by zero")
         result /=num
     return result
     def calculate(*args,**kwargs):
-    
-    if not all(isinstance(arg,int) for arg in args):
+        """
+        this program apply a specified operetion(add,subtract,multiply,divide) to numeric input
+        Args:
+             *args:number to operate on.
+             **kwargs: one operation should be true, other false.
+        returns:
+               result of operation
+        Raises :
+          TypeError,valueError,ZeroDivisionError
+          """
+    if not all(isinstance(arg,(int,float)) for arg in args):
         raise TypeError("all arguments shuld be numbers.")
     print("The kwargs are: ",kwargs)
     if kwargs.get('add'):
@@ -74,7 +83,7 @@ if __name__=="__main__":
     },
     ]
     for op in operations:
-        print("\noperation: {op}")
+        print(f"\noperation: {op}")
         for case in  test_cases:
             try :
                 result=calculate(*case, **op)
